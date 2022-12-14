@@ -35,14 +35,9 @@ print(elapsed_time)
 x = total_equations
 y = elapsed_time
 
-fig, ax = plt.subplots()
-
 # Use the plot() method on the axes object to draw a line graph
-ax.plot(x, y)
+plt.plot(x, y, color='blue')
 
-
-# Show the plot
-plt.show()
 
 # Generate a random non-trivial linear program.
 m = 15
@@ -60,4 +55,20 @@ c = -A.T @ lamb0
 x = cp.Variable(n)
 prob = cp.Problem(cp.Minimize(c.T@x),
                  [A @ x <= b])
+
+
+# Get the current time in seconds
+start_time = time.time()
+
 prob.solve()
+
+# Get the current time in seconds again
+end_time = time.time()
+
+# Calculate the difference between the start and end times
+elapsed_time = end_time - start_time
+
+y = elapsed_time
+plt.plot(total_equations, y, color='green')
+# Show the plot
+plt.show()
