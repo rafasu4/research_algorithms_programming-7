@@ -39,7 +39,7 @@ y = elapsed_time
 plt.plot(x, y, color='blue')
 
 
-# Generate a random non-trivial linear program.
+# https://www.cvxpy.org/examples/basic/linear_program.html
 m = 15
 n = 10
 np.random.seed(1)
